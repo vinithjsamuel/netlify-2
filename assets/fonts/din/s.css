@@ -1,0 +1,60 @@
+@font-face {
+    font-family: 'DIN';
+    src: url('DIN-Black.woff2') format('woff2'),
+        url('DIN-Black.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'DIN';
+    src: url('DIN-BlackAlternate.woff2') format('woff2'),
+        url('DIN-BlackAlternate.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'DIN';
+    src: url('DIN-Light.woff2') format('woff2'),
+        url('DIN-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'DIN';
+    src: url('DIN-Medium.woff2') format('woff2'),
+        url('DIN-Medium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'DIN';
+    src: url('DIN-Regular.woff2') format('woff2'),
+        url('DIN-Regular.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Aligarh Arabic';
+    src: url('AligarhArabic-Light.woff2') format('woff2'),
+        url('AligarhArabic-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Aligarh Arabic';
+    src: url('AligarhArabic-Bold.woff2') format('woff2'),
+        url('AligarhArabic-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
