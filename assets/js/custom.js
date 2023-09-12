@@ -128,7 +128,7 @@ $( document ).ready(function() {
     $("body").attr('data-active-slider',_active_slider);
   });
   $('body').on('click','.switch-main-slider', function(){
-    if($(this).hasClass('btn-outline-dark')){
+    if(!$(this).hasClass('btn-dark')){
       var _slider_index = $(this).data('slider-index');
       main_swiper.slideTo(_slider_index);
     }
@@ -182,7 +182,7 @@ $( document ).ready(function() {
         spaceBetween: 5,
       },
       1800: {
-        slidesPerView: 8,
+        slidesPerView: 6,
         spaceBetween: 5,
       }
     }
@@ -266,6 +266,17 @@ $( document ).ready(function() {
         $('.seconds-char-text-1').text(0);
       }
       $('.seconds-char-text-2').text(_existing_number);
+    }, 1000);
+  }
+
+  if($('.countdown-timer').length){
+    const _numbers = (($('html').attr('dir')) && ($('html').attr('dir') == 'rtl')) ? ["٠","١","٢","٣","٤","٥","٦","٧","٨","٩","١٠"] : [0,1,2,3,4,5,6,7,8,9,10];
+    const myInterval = setInterval(function(){
+      var _number_key = parseInt($('.countdown-timer-result').data('number_key'));
+      _number_key = _number_key+1;
+      if(_number_key == 11)_number_key = 0;
+      $('.countdown-timer-result').data('number_key',_number_key);
+      $('.countdown-timer-result').text(_numbers[_number_key]);
     }, 1000);
   }
 
