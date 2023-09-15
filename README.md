@@ -1,2 +1,2 @@
 # Created for optive fusion,
-https://eclectic-basbousa-84870c.netlify.app/en/
+https://nimble-paletas-7c5f70.netlify.app/en/
