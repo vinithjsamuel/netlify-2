@@ -247,6 +247,7 @@ body.slider-theme-primary .navbar-brand img.logo-img-light{
 }
 .nav-link.hover-line{
   position: relative;
+  z-index: 1;
 }
 .bg-dark-level-2{
   background-color: var(--bg-dark-color-level-2);
@@ -1101,7 +1102,7 @@ body.slider-theme-dark .switch-main-slider{
 .countdown-timer-result{
   color: #fff;
   position: absolute;
-    top: 64%;
+    top: 57%;
     left: 50%;
     font-size: 10rem;
     transform: translate(-50%,-50%);
@@ -1201,6 +1202,26 @@ html[dir="rtl"] .countdown-timer-result{
 }
 .terms-bg{
   background-color: #416b9c;
+}
+.countdown-timer .countdown-start{
+  position: absolute;
+    width: 30%;
+    left: 50%;
+    height: 30%;
+    top: 54%;cursor: pointer;
+    transform: translate(-50%,-50%);
+    background-image: url('../img/home/test/start-icon-en.svg');
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    transition: all 0.5s ease;
+}
+html[dir="rtl"] .countdown-timer .countdown-start{
+  background-image: url('../img/home/test/start-icon-ar.svg');
+  top: 56%;
+}
+.countdown-timer .countdown-start:hover{
+  width: 35%;height: 35%;
 }
 @media (max-width: 991.98px) {
   .button-icon .button-icon-text{
@@ -1355,7 +1376,6 @@ html[dir="rtl"] .countdown-timer-result{
   }
   .countdown-timer-result{
     font-size: 8rem;
-    top: 62%;
   }
   html[dir="rtl"] .countdown-timer-result{
     top: 54%;
@@ -1388,7 +1408,7 @@ html[dir="rtl"] .countdown-timer-result{
     visibility: hidden;
     opacity: 0;
     padding: 0.6rem;
-    width: 100%;
+    width: 100%;top: 100%;
     background-color: rgba(var(--bs-primary-rgb),1);
     -webkit-transform: translateY(20px);
     transform: translateY(20px);
@@ -1409,16 +1429,16 @@ html[dir="rtl"] .countdown-timer-result{
   .nav-link.hover-line:before{
     position: absolute;
       content: "";
-      width: 0%;
+      width: 100%;opacity: 0;
       height: 100%;
-      top: -6px;
+      top: -2px;
       left: 0;
       z-index: -1;
       background-image: linear-gradient(to right, rgba(29,107,161,0.5), #72be4c);
     transition: all 0.5s ease-in-out;
   }
-  .nav-link.hover-line:hover:before,.nav-link.hover-line.active:before{
-    width: 100%;
+  .nav-item:hover .nav-link.hover-line:before,.nav-link.hover-line.active:before{
+    opacity: 1;
   }
   @keyframes triggers-block-flip {
     0%,100% {transform: rotateY(0deg); }
@@ -1450,7 +1470,7 @@ html[dir="rtl"] .countdown-timer-result{
     content: "";
     position: absolute;
     right: -1px;
-    top: 40%;
+    top: 48%;
     height: 1.2rem;
     width: 2px;
     transform: translateY(-50%);
@@ -1714,10 +1734,10 @@ html[dir="rtl"] .countdown-timer-result{
     position: absolute;
     content: "";
     background-image: url('../img/bg/question-bg.svg');
-    width: 70%;
+    width: 80%;
     right: 0;left: auto;
-    background-size: cover;
-    background-position: center;
+    background-size: contain;
+    background-position: right;
     background-repeat: no-repeat;
     height: 100%;top: 0;
   }
@@ -1735,11 +1755,12 @@ html[dir="rtl"] .countdown-timer-result{
   .mega-menu.custom-icon-list-drop-blue>li a::before{
     position: absolute;
     content: "";
-    background-image: url('../img/bg/menu-link-bg.svg');
+    background-image: url('../img/bg/menu-link-bg-1.svg');
     background-size: contain;
-    width: 100%;
-    height: 100%;
-    right: 0;top: 0;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;height: 100%;
+    right: 0;top: 2px;
     z-index: -1;
     opacity: 0;
     -webkit-transition: all 0.5s ease;
@@ -1751,6 +1772,22 @@ html[dir="rtl"] .countdown-timer-result{
   body.slider-theme-primary .nav-link.hover-line.active{
     color: #fff;
   }
+  .main-menu .nav>li.nav-item:after{
+    content: "";
+    position: absolute;
+    left: 0;top:0;z-index: -1;opacity: 0;
+    width: 100%;height:100%;
+    background-image: url('../img/bg/menu-item-bg.svg');
+    background-size: cover;background-position: top;
+    transition: all 0.5s ease;
+  }
+  .main-menu .nav>li.nav-item:hover:after{
+    opacity: 1;
+  }
+  .main-menu .nav>li.nav-item:hover .nav-link{color: #fff;}
+  body .topbar{background-color: #fff;}
+  body.slider-theme-dark .topbar{background-color: #416b9c;}
+  body.home.top-section .topbar{background-color: transparent;}
 }
 @media (min-width: 1200px) {
   .countdown-content::before{
