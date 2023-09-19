@@ -80,6 +80,9 @@ html[dir="rtl"] .font-en{
   --bs-title-font-family: 'DIN';
   direction: ltr;
 }
+.list-group{
+  --bs-list-group-bg: transparent;
+}
 .font-en-bold{
   font-family: var(--bs-body-font-family-bold);
   font-weight: 900;
@@ -983,7 +986,7 @@ html[dir="rtl"] .img-fade-transition{
   left: -8px;
     bottom: -55px;
   color: #00689f;
-  font-size: 8rem;
+  font-size: 7rem;
   font-weight: bold;
   opacity: 0.3;
   max-width: 100%;overflow: hidden;
@@ -1135,7 +1138,7 @@ html[dir="rtl"] .countdown-timer-result{
   width: 100%;
   max-width: 600px;
 }
-.title-prefix-bar,.meet-family-bg,.info-hub-bg,.grey-bg-50,.find-out-bg,.how-to-use-bg,.factors-bg{position: relative;}
+.title-prefix-bar,.meet-family-bg,.info-hub-bg,.grey-bg-50,.find-out-bg,.how-to-use-bg,.ded-bg,.factors-bg,.prevention-bg{position: relative;}
 .title-prefix-bar:before{
   position: absolute;
   content: "";
@@ -1180,6 +1183,25 @@ html[dir="rtl"] .countdown-timer-result{
 .factors-block{
   max-width: 300px;
   min-height: 400px;
+  position: relative;
+}
+.factors-block::before{
+  content: "";
+  position: absolute;left: 0;top: 0;
+  width: 100%;height: 100%;
+  background-image: url('../img/bg/factors/1.png');
+  background-position: bottom;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.factors-block.factors-block-2::before{
+  background-image: url('../img/bg/factors/2.png');
+}
+.factors-block.factors-block-3::before{
+  background-image: url('../img/bg/factors/3.png');
+}
+.factors-block.factors-block-4::before{
+  background-image: url('../img/bg/factors/4.png');
 }
 .question-form{color: #808080;}
 .question{position: relative;}
@@ -1222,6 +1244,23 @@ html[dir="rtl"] .countdown-timer .countdown-start{
 }
 .countdown-timer .countdown-start:hover{
   width: 35%;height: 35%;
+}
+.bg-green-slope{position: relative;}
+.bg-green-slope::before{
+  content: "";position: absolute;
+  left: 0;top: 0;
+  height: 100%;width: 100%;
+  background-color: #92c54f;
+  -webkit-transform: skewX(-10deg);
+  transform: skewX(-10deg);
+}
+.fixed-footer{
+  position: fixed;
+    bottom: 0;
+    z-index: 1;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
 }
 @media (max-width: 991.98px) {
   .button-icon .button-icon-text{
@@ -1684,9 +1723,9 @@ html[dir="rtl"] .countdown-timer .countdown-start{
   .ha-cmc-bg:before{
     background-image: var(--ha-cmc-bg);
     position: absolute;content: "";
-    width: 60%;height: 100%;
+    width: 50%;height: 100%;
     top: 0;right: 0;
-    background-position: right;
+    background-position: bottom right;
     background-size: cover;
   }
   .grey-bg-50::before{
@@ -1711,7 +1750,7 @@ html[dir="rtl"] .countdown-timer .countdown-start{
     background-repeat: no-repeat;
     height: 100%;top: 0;
   }
-  .how-to-use-bg::before{
+  .how-to-use-bg::before,.ded-bg::before,.prevention-bg::before{
     position: absolute;
     content: "";
     background-image: url('../img/bg/how-to-use-bg.jpg');
@@ -1722,14 +1761,31 @@ html[dir="rtl"] .countdown-timer .countdown-start{
     background-repeat: no-repeat;
     height: 100%;top: 0;
   }
+  .ded-bg::before{
+    background-image: url('../img/bg/ded-bg.jpg');
+    background-position: bottom;
+    width: 60%;
+  }
+  .prevention-bg::before{
+    background-image: url('../img/bg/prevention-bg.jpg');
+    background-position: top;
+    width: 60%;
+  }
+  .prevention-bg-icon:before{
+    content: "";position: absolute;
+    right: 0;top: 0;width: 100%;height: 100%;
+    background-image: url('../img/bg/prevention-bg-icon.svg');
+    background-size: contain;
+    background-repeat: no-repeat;background-position: right;
+  }
   .factors-bg::before{
     position: absolute;
     content: "";
-    background-image: url('../img/bg/factors-bg.jpg');
-    width: 70%;
+    background-image: url('../img/bg/factors-bg-v1.jpg');
+    width: 60%;
     right: 0;left: auto;
     background-size: cover;
-    background-position: center;
+    background-position: top;
     background-repeat: no-repeat;
     height: 100%;top: 0;
   }
@@ -1738,7 +1794,7 @@ html[dir="rtl"] .countdown-timer .countdown-start{
     content: "";
     background-image: url('../img/bg/question-bg.svg');
     width: 80%;
-    right: 0;left: auto;
+    right: -0.5rem;left: auto;
     background-size: contain;
     background-position: right;
     background-repeat: no-repeat;
@@ -1791,6 +1847,13 @@ html[dir="rtl"] .countdown-timer .countdown-start{
   body .topbar{background-color: #fff;}
   body.slider-theme-dark .topbar{background-color: #416b9c;}
   body.home.top-section .topbar{background-color: transparent;}
+  .reference-bg::after{
+    content: "";position: absolute;
+    right: 0;
+    top:0;width: 50%;
+    height: 100%;z-index: -1;
+    background-color: #e4e3e3;
+  }
 }
 @media (min-width: 1200px) {
   .countdown-content::before{

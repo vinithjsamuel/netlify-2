@@ -273,11 +273,17 @@ $( document ).ready(function() {
 
   $('body').on('click','.countdown-start', function(){
     $('.countdown-start').css('opacity','0');
-    const _numbers = (($('html').attr('dir')) && ($('html').attr('dir') == 'rtl')) ? ["٠","١","٢","٣","٤","٥","٦","٧","٨","٩","١٠"] : [0,1,2,3,4,5,6,7,8,9,10];
+    const _numbers = (($('html').attr('dir')) && ($('html').attr('dir') == 'rtl')) ? ["٠","١","٢","٣","٤","٥","٦","٧","٨","٩","١٠"] : [1,2,3,4,5,6,7,8,9,10];
     const countdownInterval = setInterval(function(){
       var _number_key = parseInt($('.countdown-timer-result').data('number_key'));
       _number_key = _number_key+1;
-      if(_number_key == 11)_number_key = 0;
+      if(_number_key == 10){
+        _number_key = 0;
+        $('.countdown-start').css('opacity','1');
+        $('.countdown-timer-result').data('number_key',_number_key);
+        $('.countdown-timer-result').text(_numbers[_number_key]);
+        clearInterval(countdownInterval);/*Not to restart*/
+      }
       $('.countdown-timer-result').data('number_key',_number_key);
       $('.countdown-timer-result').text(_numbers[_number_key]);
     }, 1000);
