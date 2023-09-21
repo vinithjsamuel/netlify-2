@@ -143,6 +143,7 @@ html[dir="rtl"] .font-en{
 .fs-8{
   font-size: 0.7rem!important;
 }
+a.text-green:hover{color: #80cc3e;}
 .lh-08{line-height: 0.8!important;}
 .card{
   --bs-card-border-radius: 0;
@@ -618,7 +619,7 @@ html[dir="rtl"] .life-style-bg:before{
 .custom-icon-list>li:before{
   position: absolute;
     left: -1.5rem;
-    top: 3px;
+    top: 10px;
     height: 0.5rem;
     width: 0.5rem;
     content: "";
@@ -628,7 +629,7 @@ html[dir="rtl"] .life-style-bg:before{
 .custom-icon-list-drop-blue>li:before,.custom-icon-list-drop-green>li:before{
   position: absolute;
     left: -1.5rem;
-    top: -1px;
+    top: 5px;
     height: 1.2rem;
     width: 1.2rem;
     content: "";
@@ -1421,9 +1422,9 @@ html[dir="rtl"] .countdown-timer .countdown-start{
   }
   .mega-menu.custom-icon-list-drop-blue>li::before{
     left: -1rem;
-    top: 5px;
-    height: 1.5rem;
-    width: 1.5rem;
+    top: 10px;
+    height: 1rem;
+    width: 1rem;
   }
   .main-menu .hover-line.active{color: #fff;}
   .main-menu .hover-line.active::before{
@@ -1449,18 +1450,18 @@ html[dir="rtl"] .countdown-timer .countdown-start{
     z-index: 10;
     visibility: hidden;
     opacity: 0;
-    padding: 0.6rem;
+    padding: 0.5rem;
+    line-height: 1rem;
     width: 100%;top: 100%;
     background-color: rgba(var(--bs-primary-rgb),1);
     -webkit-transform: translateY(20px);
     transform: translateY(20px);
     -webkit-transition: all 0.5s ease;
     transition: all 0.5s ease;
-    min-width: 270px;
   }
   .nav-item .mega-menu li a{
-    padding-left: 0.5em;
-    padding-right: 0.5rem
+    padding-left: 0;
+    padding-right: 0;
   }
   .nav-item:hover .mega-menu{
     opacity: 1;
@@ -1810,7 +1811,7 @@ html[dir="rtl"] .countdown-timer .countdown-start{
   .mega-menu.custom-icon-list-drop-blue>li::before{
     content: none;
   }
-  .mega-menu.custom-icon-list-drop-blue>li a{position: relative;}
+  .mega-menu.custom-icon-list-drop-blue>li a{position: relative;font-size: 1rem;}
   .mega-menu.custom-icon-list-drop-blue>li a::before{
     position: absolute;
     content: "";
