@@ -13,6 +13,27 @@ function openFullscreen(elem) {
 }
 const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
+function validateQuestionAnswerForm(_field_id) {
+  let _score = 0;
+  let _this_form = $(_field_id);
+  _this_form.find('.question-answer').each(function(){
+    let _field_name = $(this).find('.form-check-input').attr('name');
+    let _field = $('input.form-check-input[name="'+_field_name+'"]');
+    let _selected_field = $('input.form-check-input[name="'+_field_name+'"]:checked');
+    if(_field.is(':checked')){
+      _score = parseInt(_selected_field.val())+_score;
+    }else{
+      _score = -1;
+      /*scroll to missing form*/
+      $('html, body').animate({
+        scrollTop: _this_form.offset().top-150
+      }, 500, "easeInOutExpo");
+      return false
+    }
+  });
+  return _score;
+}
+
 $( document ).ready(function() {
 
   // Smooth scrolling using jQuery easing
@@ -269,6 +290,36 @@ $( document ).ready(function() {
       }
       $('.seconds-char-text-2').text(_existing_number);
     }, 1000);
+  }
+
+  if($('.question-form').length){
+    $("#quiz_form_step1,#quiz_form_step2,#quiz_form_step3").on("submit", function(e){
+      var _form = $(this);
+      var _step1_score = validateQuestionAnswerForm('#quiz_form_step1');
+      if(_step1_score != -1){
+        var _step2_score = validateQuestionAnswerForm('#quiz_form_step2');
+        if(_step2_score != -1){
+          var _step3_score = validateQuestionAnswerForm('#quiz_form_step3');
+          if(_step3_score == -1)return false;
+        }
+      }
+      if(_step1_score && _step2_score && _step3_score){
+        let total_score = _step1_score + _step2_score + _step3_score;
+        let _result = 'normal';
+        if(total_score <= 10){_result = 'normal';
+        }else if(total_score <= 20){_result = 'mild';
+        }else if(total_score <= 30){_result = 'moderate';
+        }else{_result = 'severe';}
+        $('.question-answer input.form-check-input,.question-form button').attr("disabled",true);
+        $('.question-form button').css('visibility','hidden');
+        $('.result-levels').find('.'+_result).removeClass('d-none');
+        $('body').addClass('show-results');
+        $('html, body').animate({
+          scrollTop: $('section#result').offset().top-100
+        }, 500, "easeInOutExpo");
+      }
+      return false;
+    })
   }
 
   $('body').on('click','.countdown-start', function(){
